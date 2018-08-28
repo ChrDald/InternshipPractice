@@ -1,0 +1,35 @@
+﻿@model List<WebApplication1.Models.TeamLeader>
+
+@{
+    ViewData["Title"] = "ManageTeamLeaders";
+}
+
+<h2>Manage Team Leaders</h2>
+
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>first name</th>
+        <th>last name</th>
+        <th>Team Id</th>
+    </tr>
+
+    @foreach (TeamLeader tl in Model)
+    {
+        <tr>
+            <td>@tl.Id</td>
+            <td>@tl.FirstName</td>
+            <td>@tl.LastName</td>
+            
+            @if (!tl.LastName.Equals(null))
+            {
+                <td>@tl.TeamId</td>
+            }
+            else
+            {
+                <td>None</td>
+            }
+
+        </tr>
+    }
+</table>
